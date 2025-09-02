@@ -1,51 +1,54 @@
-Job Data Scraper and Merger
+# Job Data Scraper (Infosys + Tech Mahindra)
 
-This project extracts job data from Infosys and Tech Mahindra websites using Python, processes it, and saves the results into CSV files. Finally, it merges the collected data into a single file for further analysis.
+This project scrapes job postings from Infosys and Tech Mahindra career portals, merges them into a single dataset, and saves the output as a CSV file.
 
-Features
+## Features
+- Scrapes real-time job data using `requests` and `BeautifulSoup`.
+- Extracted details include job title, location, company name, and experience requirements.
+- Merges data from both companies into one file for easier analysis.
 
-Scrapes job listings from multiple sources (Infosys, Tech Mahindra).
+## Project Structure
+```
+Job-Scraper/
+├── infosys_scraper.py        # Extracts jobs from Infosys
+├── tech_mahindra_scraper.py  # Extracts jobs from Tech Mahindra
+├── merge_data.py             # Merges both datasets into one CSV
+├── Infosys_Jobs.csv          # Infosys job data (generated)
+├── TechMahindra_Jobs.csv     # Tech Mahindra job data (generated)
+├── All_Jobs.csv              # Combined dataset (generated)
+└── README.md                 # Project documentation
+```
 
-Saves each company's data into individual CSV files.
-
-Merges all datasets into a single consolidated file (All_Jobs.csv).
-
-Written in Python using requests, BeautifulSoup, and pandas.
-
-Project Structure
-├── infosys_scraper.py        # Script to scrape Infosys jobs  
-├── techmahindra_scraper.py   # Script to scrape Tech Mahindra jobs  
-├── merge_data.py             # Script to merge CSV files  
-├── Infosys_jobs.csv          # Output from Infosys scraper  
-├── TechMahindra.csv          # Output from Tech Mahindra scraper  
-├── All_Jobs.csv              # Final merged CSV file  
-└── README.md                 # Project documentation  
-
-Requirements
-
-Install the required libraries before running the scripts:
-
+## Prerequisites
+Install required libraries before running the scripts:
+```bash
 pip install requests beautifulsoup4 pandas
+```
 
-How to Run
+## How to Run
 
-Run the Infosys scraper:
-
+### Step 1. Run scrapers individually
+```bash
 python infosys_scraper.py
+python tech_mahindra_scraper.py
+```
 
-
-Run the Tech Mahindra scraper:
-
-python techmahindra_scraper.py
-
-
-Merge the CSV files:
-
+### Step 2. Merge both CSV files
+```bash
 python merge_data.py
+```
 
+This will create a final file named:
+```
+All_Jobs.csv
+```
 
-The final merged dataset will be available as All_Jobs.csv.
+## Output Format
+The combined CSV file (`All_Jobs.csv`) will have the following columns:
+- **Job Title**
+- **Company**
+- **Location**
+- **Experience**
 
-Disclaimer
-
-This project is for educational purposes only. The data belongs to their respective companies, and scraping should comply with the website's terms of use.
+## License
+This project is for **educational purposes only**. Please check the terms of use of the respective websites before scraping.
